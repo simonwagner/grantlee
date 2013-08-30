@@ -48,6 +48,9 @@
 #include "grantlee_paths.h"
 
 #include <QtSql>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QInputDialog>
+#include <QtWidgets/QDataWidgetMapper>
 
 #include <grantlee_core.h>
 

@@ -2,17 +2,19 @@ project(books_grantlee)
 
 cmake_minimum_required(VERSION 2.6)
 
-find_package(Qt4 REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Gui REQUIRED)
+find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Sql REQUIRED)
+find_package(Qt5Script REQUIRED)
 find_package(Grantlee REQUIRED)
 
 add_definitions(${QT_DEFINITIONS})
 add_definitions(-DQT_GUI_LIB)
+add_definitions(-DQT_WIDGETS_LIB)
 ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
 
 include_directories(
-  ${QT_INCLUDES}
-  ${QT_QTGUI_INCLUDE_DIR}
-  ${QT_QTSQL_INCLUDE_DIR}
   ${Grantlee_INCLUDE_DIRS}
   ${PROJECT_BINARY_DIR}
 )
@@ -34,11 +36,11 @@ set(books_example_UI
   bookwindow.ui
 )
 
-qt4_automoc( books_example_MOC_SRCS ${books_example_SRCS} )
+set(CMAKE_AUTOMOC TRUE)
 
-QT4_WRAP_UI(books_example_UI_SRCS ${books_example_UI})
+QT5_WRAP_UI(books_example_UI_SRCS ${books_example_UI})
 
-qt4_add_resources(
+qt5_add_resources(
   books_example_RCS_SRCS
   ${books_example_RCSS}
 )
@@ -51,10 +53,10 @@ add_executable(books
 
 target_link_libraries(
   books
-  ${QT_QTGUI_LIBRARIES}
-  ${QT_QTSQL_LIBRARIES}
   ${Grantlee_CORE_LIBRARIES}
 )
+
+qt5_use_modules(books Core Widgets Script Gui Sql)
 
 
 

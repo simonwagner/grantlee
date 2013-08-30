@@ -42,10 +42,12 @@
 #ifndef BOOKDELEGATE_H
 #define BOOKDELEGATE_H
 
-#include <QModelIndex>
-#include <QPixmap>
-#include <QSize>
-#include <QSqlRelationalDelegate>
+#include <QtCore/QModelIndex>
+#include <QtGui/QPixmap>
+#include <QtCore/QSize>
+#include <QtSql/QSqlRelationalDelegate>
+#include <QtWidgets/QStyleOptionViewItem>
+#include <QtWidgets/QSpinBox>
 
 QT_FORWARD_DECLARE_CLASS(QPainter)
 
