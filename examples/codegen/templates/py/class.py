@@ -4,7 +4,7 @@
 {% include licence|append:".py" %}
 {% if baseClass %}
 
-from PyQt4.{{ baseClass.module }} import {{ baseClass.type }}
+from PyQt5.{{ baseClass.module }} import {{ baseClass.type }}
 {% endif %}
 
 class {{ className }}({% if baseClass %}{{ baseClass.type }}{% else %}object{% endif %}):

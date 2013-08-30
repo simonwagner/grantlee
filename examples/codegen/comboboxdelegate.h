@@ -21,7 +21,7 @@
 #ifndef COMBOBOX_DELEGATE_H
 #define COMBOBOX_DELEGATE_H
 
-#include <QItemDelegate>
+#include <QtWidgets/QItemDelegate>
 
 static const char * sTypes[] = {
   "int",
@@ -57,6 +57,36 @@ public:
 
   virtual QWidget* createEditor(QWidget* parent, const QStyleOptionViewItem& option, const QModelIndex& index) const;
   virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
+};
+
+#include <QComboBox>
+#include <QItemEditorCreatorBase>
+#include <QItemEditorFactory>
+
+class ComboBoxEditorCreator : public QItemEditorCreatorBase
+{
+public:
+  explicit ComboBoxEditorCreator(const QStringList &data, ComboBoxDelegate::Type type);
+  virtual ~ComboBoxEditorCreator();
+
+  /* reimp */ QWidget *createWidget(QWidget *parent) const;
+
+  /* reimp */ QByteArray valuePropertyName() const;
+
+private:
+  QStringList m_data;
+  ComboBoxDelegate::Type m_type;
+};
+
+class ViewComboBox : public QComboBox
+{
+  Q_OBJECT
+  Q_PROPERTY(QString choice READ choice WRITE setChoice)
+public:
+  explicit ViewComboBox(QWidget* parent = 0);
+
+  QString choice() const;
+  void setChoice(const QString &choice);
 };
 
 #endif

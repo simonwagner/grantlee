@@ -2,7 +2,7 @@
 
 {% include licence|append:".rb" %}
 
-require 'Qt4'
+require 'Qt5'
 
 class {{ className }} {% if baseClass %} < {{ baseClass.type }}{% endif %}
 
