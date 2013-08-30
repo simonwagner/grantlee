@@ -43,7 +43,7 @@ set(CMAKE_EXE_LINKER_FLAGS_COVERAGE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -fprofile
 set(CMAKE_SHARED_LINKER_FLAGS_COVERAGE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} -fprofile-arcs -ftest-coverage")
 set(CMAKE_STATIC_LINKER_FLAGS_COVERAGE "${CMAKE_STATIC_LINKER_FLAGS_RELEASE} -fprofile-arcs -ftest-coverage")
 
-set(TESTCOCOON_ARGS "--cs-on --cs-count --cs-include-file-abs-regex=${CMAKE_SOURCE_DIR}/.* --cs-include-file-regex=qrc_* --cs-qt4 --cs-exclude-file-abs-regex=${CMAKE_BINARY_DIR}/.*")
+set(TESTCOCOON_ARGS "--cs-on --cs-count --cs-include-file-abs-regex=${CMAKE_SOURCE_DIR}/.* --cs-include-file-regex=qrc_* --cs-qt5 --cs-exclude-file-abs-regex=${CMAKE_BINARY_DIR}/.*")
 set(CMAKE_CXX_FLAGS_TESTCOCOON "${CMAKE_CXX_FLAGS_RELEASE} ${TESTCOCOON_ARGS}")
 set(CMAKE_C_FLAGS_TESTCOCOON "${CMAKE_C_FLAGS_RELEASE} ${TESTCOCOON_ARGS}")
 set(CMAKE_EXE_LINKER_FLAGS_TESTCOCOON "${CMAKE_EXE_LINKER_FLAGS_RELEASE} ${TESTCOCOON_ARGS}")
@@ -70,11 +70,6 @@ if (CMAKE_COMPILER_IS_GNUCXX)
     add_compiler_export_flags()
   endif ()
 endif()
-
-# Tell FindQt4.cmake to point the QT_QTFOO_LIBRARY targets at the imported targets
-# for the Qt libraries, so we get full handling of release and debug versions of the
-# Qt libs and are flexible regarding the install location of Qt under Windows
-set(QT_USE_IMPORTED_TARGETS TRUE)
 
 add_definitions(-DQT_NO_CAST_TO_ASCII)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)

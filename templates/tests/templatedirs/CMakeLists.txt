@@ -2,7 +2,8 @@ project(template_dirs_test)
 
 cmake_minimum_required(VERSION 2.6)
 
-find_package(Qt4 REQUIRED)
+find_package(Qt5Core)
+find_package(Qt5Gui)
 find_package(Grantlee REQUIRED)
 
 add_definitions(${QT_DEFINITIONS})
@@ -10,8 +11,6 @@ add_definitions(-DQT_GUI_LIB)
 ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
 
 include_directories(
-  ${QT_INCLUDES}
-  ${QT_QTCORE_INCLUDE_DIR}
   ${Grantlee_INCLUDE_DIRS}
   ${PROJECT_BINARY_DIR}
 )
@@ -31,8 +30,8 @@ add_executable(template_dirs_test
 
 target_link_libraries(
   template_dirs_test
-  ${QT_QTCORE_LIBRARIES}
   ${Grantlee_TEMPLATES_LIBRARIES}
 )
 
+qt_use_modules(template_dirs_test Core Gui)
 

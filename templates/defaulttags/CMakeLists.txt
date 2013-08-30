@@ -25,6 +25,8 @@ grantlee_add_plugin ( grantlee_defaulttags
     with
 )
 
+qt5_use_modules(grantlee_defaulttags Core)
+
 install(TARGETS grantlee_defaulttags
         LIBRARY DESTINATION ${PLUGIN_INSTALL_DIR} COMPONENT Templates
 )

@@ -20,7 +20,7 @@
 
 #include "myobject.h"
 
-#include <QtPlugin>
+#include <QtCore/QtPlugin>
 
 
 MyObject::MyObject( int stop, QObject *parent )
@@ -38,4 +38,4 @@ int MyObject::double_it( int input )
   return input * 2;
 }
 
-Q_EXPORT_PLUGIN2( myplugin, MyObject )
+//Q_EXPORT_PLUGIN2( myplugin, MyObject )

@@ -1,7 +1,6 @@
 
-find_package(Qt4 4.5.0 REQUIRED QtCore QtGui)
-
-include(${QT_USE_FILE})
+find_package(Qt5Core)
+find_package(Qt5Gui)
 
 add_subdirectory(lib)
 

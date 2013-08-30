@@ -22,9 +22,7 @@ set_property(GLOBAL APPEND PROPERTY SOURCE_LIST
   ${grantlee_textdocument_SRCS_FULLPATHS}
 )
 
-target_link_libraries(grantlee_gui
-  LINK_PUBLIC Qt4::QtGui Qt4::QtCore
-)
+qt5_use_modules(grantlee_gui Core Gui)
 
 if (NOT CMAKE_BUILD_TYPE MATCHES TestCocoon)
   set_target_properties(grantlee_gui PROPERTIES

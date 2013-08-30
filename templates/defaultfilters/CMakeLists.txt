@@ -12,6 +12,8 @@ grantlee_add_plugin(grantlee_defaultfilters
     stringfilters
 )
 
+qt5_use_modules(grantlee_defaultfilters Core)
+
 install(TARGETS grantlee_defaultfilters
          LIBRARY DESTINATION ${PLUGIN_INSTALL_DIR} COMPONENT Templates
 )

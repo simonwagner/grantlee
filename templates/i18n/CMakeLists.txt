@@ -12,6 +12,8 @@ grantlee_add_plugin(grantlee_i18ntags
    with_locale
 )
 
+qt5_use_modules(grantlee_i18ntags Core)
+
 install(TARGETS grantlee_i18ntags
          LIBRARY DESTINATION ${PLUGIN_INSTALL_DIR} COMPONENT Templates
 )
